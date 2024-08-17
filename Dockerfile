@@ -35,5 +35,5 @@ RUN sudo nala update && sudo nala upgrade -y && \
         libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev && \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-    sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|g' ~/.zshrc
+    mkdir 3rdparty && cd 3rdparty 
 
