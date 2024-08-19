@@ -34,6 +34,6 @@ RUN sudo nala update && sudo nala upgrade -y && \
         libgtk2.0-dev libgtk-3-dev \
         libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev && \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-    mkdir 3rdparty && cd 3rdparty 
-
+    mkdir 3rdparty && cd 3rdparty && \
+    git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git && \
+    git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git
