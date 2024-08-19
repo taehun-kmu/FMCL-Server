@@ -1,0 +1,8 @@
+dbl -t base .                                                                                           ✔  flask   19:16:32  
+[+] Building 0.0s (1/1) FINISHED                                                                                                                             docker:default
+ => ERROR [internal] load build definition from Dockerfile                                                                                                             0.0s
+------
+ > [internal] load build definition from Dockerfile:
+------
+ERROR: failed to solve: failed to read dockerfile: failed to prepare  as 64e0pwti714wubtstrmalqavd: symlink ../64e0pwti714wubtstrmalqavd/diff /var/lib/docker/overlay2/l/WVM7HLDSHZ3TTTSEIJMGHQDTCC: no such file or directory
+
