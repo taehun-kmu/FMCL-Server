@@ -28,12 +28,16 @@ RUN sudo nala update && sudo nala upgrade -y && \
         zip unzip \
         make cmake \
         gcc g++ \
-        python3 python3-dev python3-pip python3-venv \
+        python3 python3-dev python3-pip python3-numpy python3-venv \
+        build-essential pkg-config \
+        libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev libxine2-dev libxvidcore-dev libx264-dev libxine2-dev \
+        ffmpeg libffmpeg-nvenc-dev \
         libavcodec-dev libavformat-dev libswscale-dev \
-        libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev \
-        libgtk2.0-dev libgtk-3-dev \
-        libpng-dev libjpeg-dev libopenexr-dev libtiff-dev libwebp-dev && \
+        libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk2.0-dev libgtk-3-dev libharfbuzz-dev && \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
+    sed -i 's|robbyrussell|agnoster|g' ~/.zshrc && \
     mkdir 3rdparty && cd 3rdparty && \
     git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git && \
     git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git
+
