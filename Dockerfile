@@ -1,23 +1,19 @@
 FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
-ENV TZ=Asia/Seoul \
-    TERM=xterm-256color \
-    LC_ALL=C.UTF-8
+FROM taehun3446/setup:user
 
-# sudo 설치 및 사용자 생성
-RUN sed -i 's|http://archive.ubuntu.com|https://ftp.kaist.ac.kr|g; s|http://security.ubuntu.com|https://ftp.kaist.ac.kr|g' /etc/apt/sources.list && \
-    apt update && \
-    apt dist-upgrade -y && \
-    apt install -y sudo && \
-    apt autoremove --purge -y && \
-    apt clean && apt autoclean && \
-    rm -rf /var/lib/apt/lists/* && \
-    adduser user -u 1000 --quiet --gecos "" --disabled-password && \
-    echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
-    chmod 0440 /etc/sudoers.d/user
+ENV TZ=Asia/Seoul
 
-# 생성한 사용자로 스위치
-USER user
+CMD [ "zsh" ]
 
-WORKDIR /home/user
+RUN sudo ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime && \ 
+    echo ${TZ} | sudo tee /etc/timezone && \
+    sudo apt update && sudo apt install nala -y && \
+    sudo nala install zsh \
+                      git curl wget -y && \
+    sudo apt clean && sudo apt autoclean && \
+    sudo rm -rf /var/lib/apt/lists/* && \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
+    sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|g' ~/.zshrc
 
