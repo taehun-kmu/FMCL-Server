@@ -34,10 +34,45 @@ RUN sudo nala update && sudo nala upgrade -y && \
         ffmpeg libffmpeg-nvenc-dev \
         libavcodec-dev libavformat-dev libswscale-dev \
         libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk2.0-dev libgtk-3-dev libharfbuzz-dev && \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-    sed -i 's|robbyrussell|agnoster|g' ~/.zshrc && \
-    mkdir 3rdparty && cd 3rdparty && \
-    git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git && \
-    git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
+#    sed -i 's|robbyrussell|agnoster|g' ~/.zshrc && \
+
+RUN git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git && \
+    git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git && \
+    mkdir -p opencv/build && cd opencv/build && \
+        cmake -D CMAKE_BUILD_TYPE=RELEASE \
+              -D CMAKE_INSTALL_PREFIX="/usr/local" \
+              -D OPENCV_EXTRA_MODULES_PATH="/home/user/opencv_contrib/modules" \
+              -D OPENCV_ENABLE_NONFREE=ON \
+              -D EIGEN_INCLUDE_PATH=/usr/include/eigen3 \
+              -D WITH_OPENCL=OFF \
+              -D CUDA_ARCH_BIN=${ARCH} \
+              -D CUDA_ARCH_PTX=${PTX} \
+              -D WITH_CUDA=ON \
+              -D WITH_CUDNN=ON \
+              -D ENABLE_FAST_MATH=ON \
+              -D CUDA_FAST_MATH=ON \
+              -D OPENCV_DNN_CUDA=ON \
+              -D WITH_QT=OFF \
+              -D WITH_OPENMP=ON \
+              -D BUILD_TIFF=ON \
+              -D WITH_FFMPEG=ON \
+              -D WITH_GSTREAMER=ON \
+              -D TBB=ON \
+              -D BUILD_TBB=ON \
+              -D BUILD_TEST=OFF \
+              -D WITH_EIGEN=ON \
+              -D WITH_V4L=ON \
+              -D WITH_LIBV4L=ON \
+              -D WITH_PROTOBUF=ON \
+              -D INSTALL_C_EXAMPLES=OFF \
+              -D INSTALL_PYTHON_EXAMPLES=OFF \
+              -D PYTHON3_PACKAGES_PATH=/usr/lib/python3/dist-packages \
+              -D OPENCV_GENERATE_PKGCONFIG=ON \
+              -D BUILD_EXAMPLES=OFF \
+              -D CMAKE_CXX_FLAGS="-march=native -mtune=native" \
+              -D CMAKE_C_FLAGS="-march=native -mtune=native" .. && \
+              make -j${nproc} && \
+              sudo make install && sudo ldconfig
 
