@@ -2,18 +2,30 @@ FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
 FROM taehun3446/setup:user
 
-ENV TZ=Asia/Seoul
+FROM taehun3446/setup:zsh
 
-CMD [ "zsh" ]
-
-RUN sudo ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime && \ 
-    echo ${TZ} | sudo tee /etc/timezone && \
-    sudo apt update && sudo apt install nala -y && \
-    sudo nala install zsh \
-                      git curl wget -y && \
+RUN sudo nala update && \
+    # 기본 개발 도구 
+    sudo nala install build-essential make cmake pkg-config zlib1g-dev zip unzip yasm checkinstall \
+    # 이미지 포맷 지원
+                      libjpeg-dev libpng-dev libtiff-dev libopenexr-dev libwebp-dev libglew-dev \
+    # 비디오 포맷 지원
+                      libavcodec-dev libavformat-dev libswscale-dev libxvidcore-dev libx264-dev libxine2-dev \
+                      libv4l-dev v4l-utils qv4l2 \
+    # 비디오 스트리밍
+                      gstreamer1.0-tools libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev \
+                      ffmpeg libffmpeg-nvenc-dev \
+    # GUI 지원
+                      libgtk2.0-dev libgtk-3-dev 'libcanberra-gtk*' \
+    # 촤적화 라이브러리 
+                      libtbb2-dev libeigen3-dev libharfbuzz-dev libatlas-base-dev gfortran \
+                      libprotobuf-dev protobuf-compiler libgoogle-glog-dev libgflags-dev libgphoto2-dev \
+                      libhdf5-dev libtesseract-dev libpostproc-dev libvorbis-dev libfaac-dev libmp3lame-dev \
+                      libtheora-dev libopencore-amrnb-dev libopencore-amrwb-dev libdc1394-dev \
+                      libopenblas-dev libblas-dev liblapack-dev liblapacke-dev \
+    # Python
+                      python3-dev python3-pip python3-venv \
+                      python3-numpy python3-matplotlib -y && \
     sudo apt clean && sudo apt autoclean && \
-    sudo rm -rf /var/lib/apt/lists/* && \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-    sed -i 's|robbyrussell|powerlevel10k/powerlevel10k|g' ~/.zshrc
+    sudo rm -rf /var/lib/apt/lists/*
 
