@@ -1,8 +1,603 @@
-dbl -t base .                                                                                           ✔  flask   19:16:32  
-[+] Building 0.0s (1/1) FINISHED                                                                                                                             docker:default
- => ERROR [internal] load build definition from Dockerfile                                                                                                             0.0s
+ => ERROR [5/5] RUN git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git &&     git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib  54.7s 
+------                                                                                                                                                                      
+ > [5/5] RUN git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git &&     git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git &&     mkdir -p opencv/build && cd opencv/build &&         cmake -D CMAKE_BUILD_TYPE=RELEASE               -D CMAKE_INSTALL_PREFIX=/usr/local               -D OPENCV_EXTRA_MODULES_PATH=~/opencv/opencv_contrib/modules               -D EIGEN_INCLUDE_PATH=/usr/include/eigen3               -D WITH_OPENCL=OFF               -D CUDA_ARCH_BIN=${ARCH}               -D CUDA_ARCH_PTX=${PTX}               -D WITH_CUDA=ON               -D WITH_CUDNN=ON               -D ENABLE_FAST_MATH=ON               -D CUDA_FAST_MATH=ON               -D OPENCV_DNN_CUDA=ON               -D WITH_QT=OFF               -D WITH_OPENMP=ON               -D BUILD_TIFF=ON               -D WITH_FFMPEG=ON               -D WITH_GSTREAMER=ON               -D TBB=ON               -D BUILD_TBB=ON               -D BUILD_TEST=OFF               -D WITH_EIGEN=ON               -D WITH_V4L=ON               -D WITH_LIBV4L=ON               -D WITH_PROTOBUF=ON               -D OPENCV_ENABLE_NONFREE=ON               -D INSTALL_C_EXAMPLES=OFF               -D INSTALL_PYTHON_EXAMPLES=OFF               -D PYTHON3_PACKAGES_PATH=/usr/lib/python3/dist-packages               -D OPENCV_GENERATE_PKGCONFIG=ON               -D BUILD_EXAMPLES=OFF               -D CMAKE_CXX_FLAGS="-march=native -mtune=native"               -D CMAKE_C_FLAGS="-march=native -mtune=native" .. &&               make -j${nproc} &&               sudo make install && sudo ldconfig:
+0.208 Cloning into 'opencv'...
+7.578 Note: switching to '71d3237a093b60a27601c20e9ee6c3e52154e8b1'.
+7.578 
+7.578 You are in 'detached HEAD' state. You can look around, make experimental
+7.578 changes and commit them, and you can discard any commits you make in this
+7.578 state without impacting any branches by switching back to a branch.
+7.578 
+7.578 If you want to create a new branch to retain commits you create, you may
+7.578 do so (now or later) by using -c with the switch command. Example:
+7.578 
+7.578   git switch -c <new-branch-name>
+7.578 
+7.578 Or undo this operation with:
+7.578 
+7.578   git switch -
+7.578 
+7.578 Turn off this advice by setting config variable advice.detachedHead to false
+7.578 
+Updating files: 100% (7500/7500), done.
+8.659 Cloning into 'opencv_contrib'...
+13.86 Note: switching to '1ed3dd2c53888e3289afdb22ec4e9ebbff3dba87'.
+13.86 
+13.86 You are in 'detached HEAD' state. You can look around, make experimental
+13.86 changes and commit them, and you can discard any commits you make in this
+13.86 state without impacting any branches by switching back to a branch.
+13.86 
+13.86 If you want to create a new branch to retain commits you create, you may
+13.86 do so (now or later) by using -c with the switch command. Example:
+13.86 
+13.86   git switch -c <new-branch-name>
+13.86 
+13.86 Or undo this operation with:
+13.86 
+13.86   git switch -
+13.86 
+13.86 Turn off this advice by setting config variable advice.detachedHead to false
+13.86 
+14.45 -- The CXX compiler identification is GNU 11.4.0
+14.51 -- The C compiler identification is GNU 11.4.0
+14.52 -- Detecting CXX compiler ABI info
+14.62 -- Detecting CXX compiler ABI info - done
+14.63 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+14.63 -- Detecting CXX compile features
+14.63 -- Detecting CXX compile features - done
+14.64 -- Detecting C compiler ABI info
+14.73 -- Detecting C compiler ABI info - done
+14.74 -- Check for working C compiler: /usr/bin/cc - skipped
+14.74 -- Detecting C compile features
+14.74 -- Detecting C compile features - done
+14.74 -- Detected processor: x86_64
+15.04 -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.2") 
+15.05 -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable exact version "3.10.12") 
+15.27 -- Looking for ccache - not found
+15.27 -- Performing Test HAVE_CXX_FSIGNED_CHAR
+15.38 -- Performing Test HAVE_CXX_FSIGNED_CHAR - Success
+15.38 -- Performing Test HAVE_C_FSIGNED_CHAR
+15.48 -- Performing Test HAVE_C_FSIGNED_CHAR - Success
+15.48 -- Performing Test HAVE_CXX_FFAST_MATH
+15.57 -- Performing Test HAVE_CXX_FFAST_MATH - Success
+15.57 -- Performing Test HAVE_C_FFAST_MATH
+15.67 -- Performing Test HAVE_C_FFAST_MATH - Success
+15.67 -- Performing Test HAVE_CXX_FNO_FINITE_MATH_ONLY
+15.77 -- Performing Test HAVE_CXX_FNO_FINITE_MATH_ONLY - Success
+15.77 -- Performing Test HAVE_C_FNO_FINITE_MATH_ONLY
+15.87 -- Performing Test HAVE_C_FNO_FINITE_MATH_ONLY - Success
+15.87 -- Performing Test HAVE_CXX_W
+15.97 -- Performing Test HAVE_CXX_W - Success
+15.97 -- Performing Test HAVE_C_W
+16.07 -- Performing Test HAVE_C_W - Success
+16.07 -- Performing Test HAVE_CXX_WALL
+16.16 -- Performing Test HAVE_CXX_WALL - Success
+16.16 -- Performing Test HAVE_C_WALL
+16.25 -- Performing Test HAVE_C_WALL - Success
+16.25 -- Performing Test HAVE_CXX_WRETURN_TYPE
+16.35 -- Performing Test HAVE_CXX_WRETURN_TYPE - Success
+16.35 -- Performing Test HAVE_C_WRETURN_TYPE
+16.44 -- Performing Test HAVE_C_WRETURN_TYPE - Success
+16.44 -- Performing Test HAVE_CXX_WNON_VIRTUAL_DTOR
+16.54 -- Performing Test HAVE_CXX_WNON_VIRTUAL_DTOR - Success
+16.54 -- Performing Test HAVE_C_WNON_VIRTUAL_DTOR
+16.63 -- Performing Test HAVE_C_WNON_VIRTUAL_DTOR - Failed
+16.63 -- Performing Test HAVE_CXX_WADDRESS
+16.73 -- Performing Test HAVE_CXX_WADDRESS - Success
+16.73 -- Performing Test HAVE_C_WADDRESS
+16.83 -- Performing Test HAVE_C_WADDRESS - Success
+16.83 -- Performing Test HAVE_CXX_WSEQUENCE_POINT
+16.93 -- Performing Test HAVE_CXX_WSEQUENCE_POINT - Success
+16.93 -- Performing Test HAVE_C_WSEQUENCE_POINT
+17.02 -- Performing Test HAVE_C_WSEQUENCE_POINT - Success
+17.02 -- Performing Test HAVE_CXX_WFORMAT
+17.12 -- Performing Test HAVE_CXX_WFORMAT - Success
+17.12 -- Performing Test HAVE_C_WFORMAT
+17.21 -- Performing Test HAVE_C_WFORMAT - Success
+17.21 -- Performing Test HAVE_CXX_WFORMAT_SECURITY
+17.32 -- Performing Test HAVE_CXX_WFORMAT_SECURITY - Success
+17.32 -- Performing Test HAVE_C_WFORMAT_SECURITY
+17.42 -- Performing Test HAVE_C_WFORMAT_SECURITY - Success
+17.42 -- Performing Test HAVE_CXX_WMISSING_DECLARATIONS
+17.51 -- Performing Test HAVE_CXX_WMISSING_DECLARATIONS - Success
+17.51 -- Performing Test HAVE_C_WMISSING_DECLARATIONS
+17.61 -- Performing Test HAVE_C_WMISSING_DECLARATIONS - Success
+17.61 -- Performing Test HAVE_CXX_WMISSING_PROTOTYPES
+17.71 -- Performing Test HAVE_CXX_WMISSING_PROTOTYPES - Failed
+17.71 -- Performing Test HAVE_C_WMISSING_PROTOTYPES
+17.80 -- Performing Test HAVE_C_WMISSING_PROTOTYPES - Success
+17.80 -- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES
+17.89 -- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES - Failed
+17.89 -- Performing Test HAVE_C_WSTRICT_PROTOTYPES
+17.99 -- Performing Test HAVE_C_WSTRICT_PROTOTYPES - Success
+17.99 -- Performing Test HAVE_CXX_WUNDEF
+18.08 -- Performing Test HAVE_CXX_WUNDEF - Success
+18.08 -- Performing Test HAVE_C_WUNDEF
+18.18 -- Performing Test HAVE_C_WUNDEF - Success
+18.18 -- Performing Test HAVE_CXX_WINIT_SELF
+18.28 -- Performing Test HAVE_CXX_WINIT_SELF - Success
+18.28 -- Performing Test HAVE_C_WINIT_SELF
+18.37 -- Performing Test HAVE_C_WINIT_SELF - Success
+18.37 -- Performing Test HAVE_CXX_WPOINTER_ARITH
+18.46 -- Performing Test HAVE_CXX_WPOINTER_ARITH - Success
+18.46 -- Performing Test HAVE_C_WPOINTER_ARITH
+18.55 -- Performing Test HAVE_C_WPOINTER_ARITH - Success
+18.56 -- Performing Test HAVE_CXX_WSHADOW
+18.66 -- Performing Test HAVE_CXX_WSHADOW - Success
+18.66 -- Performing Test HAVE_C_WSHADOW
+18.75 -- Performing Test HAVE_C_WSHADOW - Success
+18.75 -- Performing Test HAVE_CXX_WSIGN_PROMO
+18.85 -- Performing Test HAVE_CXX_WSIGN_PROMO - Success
+18.85 -- Performing Test HAVE_C_WSIGN_PROMO
+18.95 -- Performing Test HAVE_C_WSIGN_PROMO - Failed
+18.95 -- Performing Test HAVE_CXX_WUNINITIALIZED
+19.05 -- Performing Test HAVE_CXX_WUNINITIALIZED - Success
+19.05 -- Performing Test HAVE_C_WUNINITIALIZED
+19.14 -- Performing Test HAVE_C_WUNINITIALIZED - Success
+19.14 -- Performing Test HAVE_CXX_WSUGGEST_OVERRIDE
+19.24 -- Performing Test HAVE_CXX_WSUGGEST_OVERRIDE - Success
+19.24 -- Performing Test HAVE_C_WSUGGEST_OVERRIDE
+19.34 -- Performing Test HAVE_C_WSUGGEST_OVERRIDE - Failed
+19.34 -- Performing Test HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR
+19.43 -- Performing Test HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR - Success
+19.43 -- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR
+19.52 -- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR - Failed
+19.53 -- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS
+19.63 -- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Failed
+19.63 -- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS
+19.72 -- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Failed
+19.72 -- Performing Test HAVE_CXX_WNO_COMMENT
+19.83 -- Performing Test HAVE_CXX_WNO_COMMENT - Success
+19.83 -- Performing Test HAVE_C_WNO_COMMENT
+19.92 -- Performing Test HAVE_C_WNO_COMMENT - Success
+19.92 -- Performing Test HAVE_CXX_WIMPLICIT_FALLTHROUGH_3
+20.02 -- Performing Test HAVE_CXX_WIMPLICIT_FALLTHROUGH_3 - Success
+20.02 -- Performing Test HAVE_C_WIMPLICIT_FALLTHROUGH_3
+20.11 -- Performing Test HAVE_C_WIMPLICIT_FALLTHROUGH_3 - Success
+20.11 -- Performing Test HAVE_CXX_WNO_STRICT_OVERFLOW
+20.21 -- Performing Test HAVE_CXX_WNO_STRICT_OVERFLOW - Success
+20.21 -- Performing Test HAVE_C_WNO_STRICT_OVERFLOW
+20.31 -- Performing Test HAVE_C_WNO_STRICT_OVERFLOW - Success
+20.31 -- Performing Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION
+20.41 -- Performing Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION - Success
+20.41 -- Performing Test HAVE_C_FDIAGNOSTICS_SHOW_OPTION
+20.50 -- Performing Test HAVE_C_FDIAGNOSTICS_SHOW_OPTION - Success
+20.50 -- Performing Test HAVE_CXX_WNO_LONG_LONG
+20.59 -- Performing Test HAVE_CXX_WNO_LONG_LONG - Success
+20.60 -- Performing Test HAVE_C_WNO_LONG_LONG
+20.69 -- Performing Test HAVE_C_WNO_LONG_LONG - Success
+20.69 -- Performing Test HAVE_CXX_PTHREAD
+20.79 -- Performing Test HAVE_CXX_PTHREAD - Success
+20.79 -- Performing Test HAVE_C_PTHREAD
+20.89 -- Performing Test HAVE_C_PTHREAD - Success
+20.89 -- Performing Test HAVE_CXX_FOMIT_FRAME_POINTER
+20.98 -- Performing Test HAVE_CXX_FOMIT_FRAME_POINTER - Success
+20.98 -- Performing Test HAVE_C_FOMIT_FRAME_POINTER
+21.08 -- Performing Test HAVE_C_FOMIT_FRAME_POINTER - Success
+21.08 -- Performing Test HAVE_CXX_FFUNCTION_SECTIONS
+21.18 -- Performing Test HAVE_CXX_FFUNCTION_SECTIONS - Success
+21.18 -- Performing Test HAVE_C_FFUNCTION_SECTIONS
+21.27 -- Performing Test HAVE_C_FFUNCTION_SECTIONS - Success
+21.28 -- Performing Test HAVE_CXX_FDATA_SECTIONS
+21.38 -- Performing Test HAVE_CXX_FDATA_SECTIONS - Success
+21.38 -- Performing Test HAVE_C_FDATA_SECTIONS
+21.48 -- Performing Test HAVE_C_FDATA_SECTIONS - Success
+21.48 -- Performing Test HAVE_CPU_SSE_SUPPORT (check file: cmake/checks/cpu_sse.cpp)
+21.61 -- Performing Test HAVE_CPU_SSE_SUPPORT - Success
+21.61 -- Performing Test HAVE_CPU_SSE2_SUPPORT (check file: cmake/checks/cpu_sse2.cpp)
+21.73 -- Performing Test HAVE_CPU_SSE2_SUPPORT - Success
+21.73 -- Performing Test HAVE_CPU_SSE3_SUPPORT (check file: cmake/checks/cpu_sse3.cpp)
+21.86 -- Performing Test HAVE_CPU_SSE3_SUPPORT - Success
+21.86 -- Performing Test HAVE_CPU_SSSE3_SUPPORT (check file: cmake/checks/cpu_ssse3.cpp)
+21.99 -- Performing Test HAVE_CPU_SSSE3_SUPPORT - Success
+21.99 -- Performing Test HAVE_CPU_SSE4_1_SUPPORT (check file: cmake/checks/cpu_sse41.cpp)
+22.12 -- Performing Test HAVE_CPU_SSE4_1_SUPPORT - Success
+22.12 -- Performing Test HAVE_CPU_POPCNT_SUPPORT (check file: cmake/checks/cpu_popcnt.cpp)
+22.22 -- Performing Test HAVE_CPU_POPCNT_SUPPORT - Success
+22.22 -- Performing Test HAVE_CPU_SSE4_2_SUPPORT (check file: cmake/checks/cpu_sse42.cpp)
+22.34 -- Performing Test HAVE_CPU_SSE4_2_SUPPORT - Success
+22.35 -- Performing Test HAVE_CPU_FP16_SUPPORT (check file: cmake/checks/cpu_fp16.cpp)
+22.70 -- Performing Test HAVE_CPU_FP16_SUPPORT - Success
+22.70 -- Performing Test HAVE_CXX_MFMA
+22.79 -- Performing Test HAVE_CXX_MFMA - Success
+22.79 -- Performing Test HAVE_CPU_AVX_SUPPORT (check file: cmake/checks/cpu_avx.cpp)
+23.13 -- Performing Test HAVE_CPU_AVX_SUPPORT - Success
+23.13 -- Performing Test HAVE_CPU_AVX2_SUPPORT (check file: cmake/checks/cpu_avx2.cpp)
+23.49 -- Performing Test HAVE_CPU_AVX2_SUPPORT - Success
+23.49 -- Performing Test HAVE_CPU_AVX_512F_SUPPORT (check file: cmake/checks/cpu_avx512.cpp)
+23.53 -- Performing Test HAVE_CPU_AVX_512F_SUPPORT - Failed
+23.53 -- Performing Test HAVE_CXX_MAVX512F (check file: cmake/checks/cpu_avx512.cpp)
+23.84 -- Performing Test HAVE_CXX_MAVX512F - Success
+23.85 -- Performing Test HAVE_CPU_AVX512_COMMON_SUPPORT (check file: cmake/checks/cpu_avx512common.cpp)
+23.89 -- Performing Test HAVE_CPU_AVX512_COMMON_SUPPORT - Failed
+23.89 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD (check file: cmake/checks/cpu_avx512common.cpp)
+24.20 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD - Success
+24.20 -- Performing Test HAVE_CPU_AVX512_KNL_SUPPORT (check file: cmake/checks/cpu_avx512knl.cpp)
+24.24 -- Performing Test HAVE_CPU_AVX512_KNL_SUPPORT - Failed
+24.24 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512ER_MAVX512PF (check file: cmake/checks/cpu_avx512knl.cpp)
+24.57 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512ER_MAVX512PF - Success
+24.57 -- Performing Test HAVE_CPU_AVX512_KNM_SUPPORT (check file: cmake/checks/cpu_avx512knm.cpp)
+24.61 -- Performing Test HAVE_CPU_AVX512_KNM_SUPPORT - Failed
+24.61 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512ER_MAVX512PF_MAVX5124FMAPS_MAVX5124VNNIW_MAVX512VPOPCNTDQ (check file: cmake/checks/cpu_avx512knm.cpp)
+24.93 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512ER_MAVX512PF_MAVX5124FMAPS_MAVX5124VNNIW_MAVX512VPOPCNTDQ - Success
+24.93 -- Performing Test HAVE_CPU_AVX512_SKX_SUPPORT (check file: cmake/checks/cpu_avx512skx.cpp)
+24.97 -- Performing Test HAVE_CPU_AVX512_SKX_SUPPORT - Failed
+24.97 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ (check file: cmake/checks/cpu_avx512skx.cpp)
+25.25 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ - Success
+25.25 -- Performing Test HAVE_CPU_AVX512_CNL_SUPPORT (check file: cmake/checks/cpu_avx512cnl.cpp)
+25.29 -- Performing Test HAVE_CPU_AVX512_CNL_SUPPORT - Failed
+25.29 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ_MAVX512IFMA_MAVX512VBMI (check file: cmake/checks/cpu_avx512cnl.cpp)
+25.57 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ_MAVX512IFMA_MAVX512VBMI - Success
+25.58 -- Performing Test HAVE_CPU_AVX512_CLX_SUPPORT (check file: cmake/checks/cpu_avx512clx.cpp)
+25.61 -- Performing Test HAVE_CPU_AVX512_CLX_SUPPORT - Failed
+25.61 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ_MAVX512VNNI (check file: cmake/checks/cpu_avx512clx.cpp)
+25.89 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ_MAVX512VNNI - Success
+25.89 -- Performing Test HAVE_CPU_AVX512_ICL_SUPPORT (check file: cmake/checks/cpu_avx512icl.cpp)
+25.93 -- Performing Test HAVE_CPU_AVX512_ICL_SUPPORT - Failed
+25.93 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ_MAVX512IFMA_MAVX512VBMI_MAVX512VNNI_MAVX512VBMI2_MAVX512BITALG_MAVX512VPOPCNTDQ (check file: cmake/checks/cpu_avx512icl.cpp)
+26.21 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ_MAVX512IFMA_MAVX512VBMI_MAVX512VNNI_MAVX512VBMI2_MAVX512BITALG_MAVX512VPOPCNTDQ - Success
+26.21 -- Performing Test HAVE_CPU_BASELINE_FLAGS
+26.31 -- Performing Test HAVE_CPU_BASELINE_FLAGS - Success
+26.32 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX512_SKX
+26.42 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX512_SKX - Success
+26.42 -- Performing Test HAVE_CXX_FVISIBILITY_HIDDEN
+26.52 -- Performing Test HAVE_CXX_FVISIBILITY_HIDDEN - Success
+26.52 -- Performing Test HAVE_C_FVISIBILITY_HIDDEN
+26.61 -- Performing Test HAVE_C_FVISIBILITY_HIDDEN - Success
+26.61 -- Performing Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN
+26.70 -- Performing Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN - Success
+26.70 -- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN
+26.79 -- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN - Failed
+26.79 -- Performing Test HAVE_LINK_AS_NEEDED
+26.89 -- Performing Test HAVE_LINK_AS_NEEDED - Success
+26.89 -- Performing Test HAVE_LINK_NO_UNDEFINED
+26.99 -- Performing Test HAVE_LINK_NO_UNDEFINED - Success
+27.00 -- Looking for pthread.h
+27.08 -- Looking for pthread.h - found
+27.08 -- Looking for posix_memalign
+27.18 -- Looking for posix_memalign - found
+27.18 -- Looking for malloc.h
+27.26 -- Looking for malloc.h - found
+27.26 -- Looking for memalign
+27.35 -- Looking for memalign - found
+27.66 -- Found OpenMP_C: -fopenmp (found version "4.5") 
+27.75 -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+27.75 -- Found OpenMP: TRUE (found version "4.5")  
+27.77 -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found suitable version "1.2.11", minimum required is "1.2.3") 
+27.77 -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+27.78 -- Looking for assert.h
+27.86 -- Looking for assert.h - found
+27.87 -- Looking for dlfcn.h
+27.96 -- Looking for dlfcn.h - found
+27.96 -- Looking for fcntl.h
+28.06 -- Looking for fcntl.h - found
+28.06 -- Looking for inttypes.h
+28.14 -- Looking for inttypes.h - found
+28.14 -- Looking for io.h
+28.17 -- Looking for io.h - not found
+28.18 -- Looking for limits.h
+28.26 -- Looking for limits.h - found
+28.26 -- Looking for memory.h
+28.36 -- Looking for memory.h - found
+28.36 -- Looking for search.h
+28.44 -- Looking for search.h - found
+28.44 -- Looking for stdint.h
+28.53 -- Looking for stdint.h - found
+28.54 -- Looking for string.h
+28.62 -- Looking for string.h - found
+28.62 -- Looking for strings.h
+28.71 -- Looking for strings.h - found
+28.71 -- Looking for sys/time.h
+28.80 -- Looking for sys/time.h - found
+28.80 -- Looking for sys/types.h
+28.89 -- Looking for sys/types.h - found
+28.89 -- Looking for unistd.h
+28.98 -- Looking for unistd.h - found
+28.98 -- Performing Test C_HAS_inline
+29.06 -- Performing Test C_HAS_inline - Success
+29.06 -- Looking for stddef.h
+29.15 -- Looking for stddef.h - found
+29.15 -- Check size of signed short
+29.25 -- Check size of signed short - done
+29.25 -- Check size of unsigned short
+29.34 -- Check size of unsigned short - done
+29.34 -- Check size of signed int
+29.43 -- Check size of signed int - done
+29.43 -- Check size of unsigned int
+29.54 -- Check size of unsigned int - done
+29.54 -- Check size of signed long
+29.63 -- Check size of signed long - done
+29.63 -- Check size of unsigned long
+29.73 -- Check size of unsigned long - done
+29.73 -- Check size of signed long long
+29.84 -- Check size of signed long long - done
+29.84 -- Check size of unsigned long long
+29.94 -- Check size of unsigned long long - done
+29.94 -- Check size of unsigned char *
+30.03 -- Check size of unsigned char * - done
+30.03 -- Check size of size_t
+30.12 -- Check size of size_t - done
+30.12 -- Check size of ptrdiff_t
+30.21 -- Check size of ptrdiff_t - done
+30.22 -- Check size of INT8
+30.25 -- Check size of INT8 - failed
+30.25 -- Check size of INT16
+30.29 -- Check size of INT16 - failed
+30.29 -- Check size of INT32
+30.34 -- Check size of INT32 - failed
+30.34 -- Looking for floor
+30.43 -- Looking for floor - found
+30.43 -- Looking for pow
+30.53 -- Looking for pow - found
+30.53 -- Looking for sqrt
+30.63 -- Looking for sqrt - found
+30.63 -- Looking for isascii
+30.73 -- Looking for isascii - found
+30.73 -- Looking for memset
+30.82 -- Looking for memset - found
+30.82 -- Looking for mmap
+30.92 -- Looking for mmap - found
+30.92 -- Looking for getopt
+31.01 -- Looking for getopt - found
+31.01 -- Looking for memmove
+31.10 -- Looking for memmove - found
+31.10 -- Looking for setmode
+31.18 -- Looking for setmode - not found
+31.18 -- Looking for strcasecmp
+31.28 -- Looking for strcasecmp - found
+31.28 -- Looking for strchr
+31.37 -- Looking for strchr - found
+31.37 -- Looking for strrchr
+31.47 -- Looking for strrchr - found
+31.47 -- Looking for strstr
+31.55 -- Looking for strstr - found
+31.55 -- Looking for strtol
+31.65 -- Looking for strtol - found
+31.65 -- Looking for strtol
+31.74 -- Looking for strtol - found
+31.74 -- Looking for strtoull
+31.84 -- Looking for strtoull - found
+31.84 -- Looking for lfind
+31.93 -- Looking for lfind - found
+31.93 -- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE
+32.02 -- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE - Success
+32.02 -- Performing Test HAVE_C_WNO_MISSING_PROTOTYPES
+32.12 -- Performing Test HAVE_C_WNO_MISSING_PROTOTYPES - Success
+32.12 -- Performing Test HAVE_C_WNO_MISSING_DECLARATIONS
+32.21 -- Performing Test HAVE_C_WNO_MISSING_DECLARATIONS - Success
+32.21 -- Performing Test HAVE_C_WNO_UNDEF
+32.31 -- Performing Test HAVE_C_WNO_UNDEF - Success
+32.31 -- Performing Test HAVE_C_WNO_UNUSED
+32.40 -- Performing Test HAVE_C_WNO_UNUSED - Success
+32.40 -- Performing Test HAVE_C_WNO_SIGN_COMPARE
+32.49 -- Performing Test HAVE_C_WNO_SIGN_COMPARE - Success
+32.49 -- Performing Test HAVE_C_WNO_CAST_ALIGN
+32.58 -- Performing Test HAVE_C_WNO_CAST_ALIGN - Success
+32.58 -- Performing Test HAVE_C_WNO_SHADOW
+32.68 -- Performing Test HAVE_C_WNO_SHADOW - Success
+32.68 -- Performing Test HAVE_C_WNO_MAYBE_UNINITIALIZED
+32.77 -- Performing Test HAVE_C_WNO_MAYBE_UNINITIALIZED - Success
+32.77 -- Performing Test HAVE_C_WNO_POINTER_TO_INT_CAST
+32.87 -- Performing Test HAVE_C_WNO_POINTER_TO_INT_CAST - Success
+32.87 -- Performing Test HAVE_C_WNO_INT_TO_POINTER_CAST
+32.97 -- Performing Test HAVE_C_WNO_INT_TO_POINTER_CAST - Success
+32.97 -- Performing Test HAVE_C_WNO_MISLEADING_INDENTATION
+33.05 -- Performing Test HAVE_C_WNO_MISLEADING_INDENTATION - Success
+33.05 -- Performing Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH
+33.15 -- Performing Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH - Success
+33.15 -- Performing Test HAVE_C_WNO_UNUSED_PARAMETER
+33.25 -- Performing Test HAVE_C_WNO_UNUSED_PARAMETER - Success
+33.25 -- Performing Test HAVE_C_WNO_ARRAY_PARAMETER
+33.35 -- Performing Test HAVE_C_WNO_ARRAY_PARAMETER - Success
+33.35 -- Performing Test HAVE_C_WNO_STRICT_PROTOTYPES
+33.44 -- Performing Test HAVE_C_WNO_STRICT_PROTOTYPES - Success
+33.44 -- Performing Test HAVE_CXX_WNO_MISSING_DECLARATIONS
+33.54 -- Performing Test HAVE_CXX_WNO_MISSING_DECLARATIONS - Success
+33.54 -- Performing Test HAVE_CXX_WNO_UNUSED_PARAMETER
+33.65 -- Performing Test HAVE_CXX_WNO_UNUSED_PARAMETER - Success
+33.65 -- Performing Test HAVE_CXX_WNO_MISSING_PROTOTYPES
+33.76 -- Performing Test HAVE_CXX_WNO_MISSING_PROTOTYPES - Failed
+33.76 -- Performing Test HAVE_CXX_WNO_UNDEF
+33.86 -- Performing Test HAVE_CXX_WNO_UNDEF - Success
+33.87 -- Found WebP: /usr/lib/x86_64-linux-gnu/libwebp.so  
+33.87 -- Could NOT find OpenJPEG (minimal suitable version: 2.0, recommended version >= 2.3.1). OpenJPEG will be built from sources
+33.88 -- Performing Test HAVE_C_WNO_IMPLICIT_CONST_INT_FLOAT_CONVERSION
+33.96 -- Performing Test HAVE_C_WNO_IMPLICIT_CONST_INT_FLOAT_CONVERSION - Failed
+33.96 -- Performing Test HAVE_C_WNO_DOCUMENTATION
+34.06 -- Performing Test HAVE_C_WNO_DOCUMENTATION - Failed
+34.06 -- OpenJPEG: VERSION = 2.5.0, BUILD = opencv-4.10.0-openjp2-2.5.0
+34.06 -- Looking for stdlib.h
+34.16 -- Looking for stdlib.h - found
+34.16 -- Looking for stdio.h
+34.24 -- Looking for stdio.h - found
+34.24 -- Looking for math.h
+34.34 -- Looking for math.h - found
+34.34 -- Looking for float.h
+34.44 -- Looking for float.h - found
+34.44 -- Looking for time.h
+34.53 -- Looking for time.h - found
+34.53 -- Looking for stdarg.h
+34.63 -- Looking for stdarg.h - found
+34.63 -- Looking for ctype.h
+34.71 -- Looking for ctype.h - found
+34.71 -- Looking for stdint.h
+34.81 -- Looking for stdint.h - found
+34.81 -- Looking for inttypes.h
+34.91 -- Looking for inttypes.h - found
+34.91 -- Looking for sys/stat.h
+35.00 -- Looking for sys/stat.h - found
+35.00 -- Looking for include file malloc.h
+35.10 -- Looking for include file malloc.h - found
+35.10 -- Looking for _aligned_malloc
+35.14 -- Looking for _aligned_malloc - not found
+35.15 -- Looking for posix_memalign
+35.23 -- Looking for posix_memalign - found
+35.23 -- Looking for memalign
+35.33 -- Looking for memalign - found
+35.33 -- Performing Test HAVE_C_WNO_CAST_FUNCTION_TYPE
+35.42 -- Performing Test HAVE_C_WNO_CAST_FUNCTION_TYPE - Success
+35.42 -- Performing Test HAVE_C_WNO_UNUSED_FUNCTION
+35.51 -- Performing Test HAVE_C_WNO_UNUSED_FUNCTION - Success
+35.71 -- OpenJPEG libraries will be built from sources: libopenjp2 (version "2.5.0")
+35.72 -- Found OpenEXR: /usr/lib/x86_64-linux-gnu/libIlmImf-2_5.so
+35.72 -- libva: missing va.h header (VA_INCLUDE_DIR)
+35.73 -- IPPICV: Downloading ippicv_2021.11.0_lnx_intel64_20240201_general.tgz from https://raw.githubusercontent.com/opencv/opencv_3rdparty/fd27188235d85e552de31425e7ea0f53ba73ba53/ippicv/ippicv_2021.11.0_lnx_intel64_20240201_general.tgz
+36.81 -- found Intel IPP (ICV version): 2021.11.0 [2021.11.0]
+36.81 -- at: /home/user/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+36.81 -- found Intel IPP Integration Wrappers sources: 2021.11.0
+36.81 -- at: /home/user/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+36.85 -- Found Threads: TRUE  
+36.86 -- Found CUDNN: /usr/lib/x86_64-linux-gnu/libcudnn.so (found suitable version "8.9.0", minimum required is "7.5") 
+36.86 -- NVCUVID: Header not found, WITH_NVCUVID requires Nvidia decoding library header /usr/local/cuda;/usr/local/cuda/include/nvcuvid.h
+36.86 -- NVCUVENC: Header not found, WITH_NVCUVENC requires Nvidia encoding library header /usr/local/cuda;/usr/local/cuda/include/nvEncodeAPI.h
+36.86 -- CUDA detected: 12.1
+49.70 -- CUDA: NVCC target flags -D_FORCE_INLINES
+49.72 -- Could not find OpenBLAS include. Turning OpenBLAS_FOUND off
+49.72 -- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+49.72 -- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+49.72 -- Looking for sgemm_
+49.81 -- Looking for sgemm_ - not found
+49.84 -- Could NOT find BLAS (missing: BLAS_LIBRARIES) 
+49.84 -- Could NOT find LAPACK (missing: LAPACK_LIBRARIES) 
+49.84     Reason given by package: LAPACK could not be found because dependency BLAS could not be found.
+49.84 
+49.84 -- Performing Test HAVE_CXX_WNO_DEPRECATED
+49.94 -- Performing Test HAVE_CXX_WNO_DEPRECATED - Success
+49.94 -- Performing Test HAVE_CXX_WNO_SHADOW
+50.04 -- Performing Test HAVE_CXX_WNO_SHADOW - Success
+50.04 -- Performing Test HAVE_CXX_WNO_UNUSED_LOCAL_TYPEDEFS
+50.15 -- Performing Test HAVE_CXX_WNO_UNUSED_LOCAL_TYPEDEFS - Success
+50.15 -- Performing Test HAVE_CXX_WNO_SIGN_COMPARE
+50.26 -- Performing Test HAVE_CXX_WNO_SIGN_COMPARE - Success
+50.26 -- Performing Test HAVE_CXX_WNO_SIGN_PROMO
+50.36 -- Performing Test HAVE_CXX_WNO_SIGN_PROMO - Success
+50.37 -- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_UNDEFINED_COMPARE
+50.47 -- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_UNDEFINED_COMPARE - Failed
+50.47 -- Performing Test HAVE_CXX_WNO_IGNORED_QUALIFIERS
+50.58 -- Performing Test HAVE_CXX_WNO_IGNORED_QUALIFIERS - Success
+50.58 -- Performing Test HAVE_CXX_WNO_EXTRA
+50.68 -- Performing Test HAVE_CXX_WNO_EXTRA - Success
+50.69 -- Performing Test HAVE_CXX_WNO_UNUSED_FUNCTION
+50.79 -- Performing Test HAVE_CXX_WNO_UNUSED_FUNCTION - Success
+50.79 -- Performing Test HAVE_CXX_WNO_UNUSED_CONST_VARIABLE
+50.89 -- Performing Test HAVE_CXX_WNO_UNUSED_CONST_VARIABLE - Success
+50.89 -- Performing Test HAVE_CXX_WNO_SHORTEN_64_TO_32
+50.99 -- Performing Test HAVE_CXX_WNO_SHORTEN_64_TO_32 - Failed
+50.99 -- Performing Test HAVE_CXX_WNO_INVALID_OFFSETOF
+51.08 -- Performing Test HAVE_CXX_WNO_INVALID_OFFSETOF - Success
+51.08 -- Performing Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH
+51.18 -- Performing Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH - Failed
+51.18 -- Performing Test HAVE_CXX_WNO_SUGGEST_OVERRIDE
+51.29 -- Performing Test HAVE_CXX_WNO_SUGGEST_OVERRIDE - Success
+51.29 -- Performing Test HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE
+51.40 -- Performing Test HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE - Failed
+51.40 -- Performing Test HAVE_CXX_WNO_IMPLICIT_FALLTHROUGH
+51.51 -- Performing Test HAVE_CXX_WNO_IMPLICIT_FALLTHROUGH - Success
+51.51 -- Performing Test HAVE_CXX_WNO_ARRAY_BOUNDS
+51.62 -- Performing Test HAVE_CXX_WNO_ARRAY_BOUNDS - Success
+51.62 -- Performing Test HAVE_CXX_WNO_STRINGOP_OVERFLOW
+51.72 -- Performing Test HAVE_CXX_WNO_STRINGOP_OVERFLOW - Success
+51.73 -- Performing Test HAVE_CXX_WNO_STRINGOP_OVERREAD
+51.84 -- Performing Test HAVE_CXX_WNO_STRINGOP_OVERREAD - Success
+51.84 -- Performing Test HAVE_CXX_WNO_EXTRA_SEMI
+51.95 -- Performing Test HAVE_CXX_WNO_EXTRA_SEMI - Success
+51.95 -- Performing Test HAVE_CXX_WNO_COMMA
+52.05 -- Performing Test HAVE_CXX_WNO_COMMA - Failed
+52.05 -- Performing Test HAVE_CXX_WNO_CLASS_MEMACCESS
+52.15 -- Performing Test HAVE_CXX_WNO_CLASS_MEMACCESS - Success
+52.16 -- Could NOT find Java (missing: Java_JAVA_EXECUTABLE Java_JAR_EXECUTABLE Java_JAVAC_EXECUTABLE Java_JAVAH_EXECUTABLE Java_JAVADOC_EXECUTABLE) 
+52.17 -- Could NOT find JNI (missing: JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+52.17 -- VTK is not found. Please set -DVTK_DIR in CMake to VTK build directory, or to VTK install subdirectory with VTKConfig.cmake file
+52.18 -- Looking for dlerror in dl
+52.27 -- Looking for dlerror in dl - found
+52.28 CMake Error at cmake/OpenCVModule.cmake:274 (message):
+52.28   No modules has been found: /home/user/opencv/opencv_contrib/modules
+52.28 Call Stack (most recent call first):
+52.28   cmake/OpenCVModule.cmake:356 (_glob_locations)
+52.28   cmake/OpenCVModule.cmake:408 (ocv_glob_modules)
+52.28   CMakeLists.txt:1076 (ocv_register_modules)
+52.28 
+52.28 
+52.29 -- ADE: Downloading v0.1.2d.zip from https://github.com/opencv/ade/archive/v0.1.2d.zip
+52.90 -- Checking for module 'gtk+-3.0'
+52.93 --   Found gtk+-3.0, version 3.24.33
+53.03 -- Checking for module 'gtk+-2.0'
+53.05 --   Found gtk+-2.0, version 2.24.33
+53.14 -- Checking for module 'gthread-2.0>=2.32'
+53.16 --   Found gthread-2.0, version 2.72.4
+53.23 -- Performing Test HAVE_CXX_WNO_STRICT_ALIASING
+53.33 -- Performing Test HAVE_CXX_WNO_STRICT_ALIASING - Success
+53.33 -- Checking for modules 'libavcodec;libavformat;libavutil;libswscale'
+53.36 --   Found libavcodec, version 58.134.100
+53.38 --   Found libavformat, version 58.76.100
+53.39 --   Found libavutil, version 56.70.100
+53.41 --   Found libswscale, version 5.9.100
+53.46 -- Checking for module 'libavresample'
+53.46 --   No package 'libavresample' found
+53.78 -- Checking for module 'gstreamer-base-1.0'
+53.80 --   Found gstreamer-base-1.0, version 1.20.3
+53.86 -- Checking for module 'gstreamer-app-1.0'
+53.88 --   Found gstreamer-app-1.0, version 1.20.1
+53.93 -- Checking for module 'gstreamer-riff-1.0'
+53.95 --   Found gstreamer-riff-1.0, version 1.20.1
+54.01 -- Checking for module 'gstreamer-pbutils-1.0'
+54.03 --   Found gstreamer-pbutils-1.0, version 1.20.1
+54.10 -- Checking for module 'gstreamer-video-1.0'
+54.12 --   Found gstreamer-video-1.0, version 1.20.1
+54.18 -- Checking for module 'gstreamer-audio-1.0'
+54.20 --   Found gstreamer-audio-1.0, version 1.20.1
+54.40 -- Checking for module 'libdc1394-2'
+54.40 --   No package 'libdc1394-2' found
+54.56 -- Allocator metrics storage type: 'long long'
+54.56 CMake Error at modules/core/CMakeLists.txt:158 (message):
+54.56   CUDA: OpenCV requires enabled 'cudev' module from 'opencv_contrib'
+54.56   repository: https://github.com/opencv/opencv_contrib
+54.56 
+54.56 
+54.56 -- Configuring incomplete, errors occurred!
+54.56 See also "/home/user/opencv/build/CMakeFiles/CMakeOutput.log".
+54.56 See also "/home/user/opencv/build/CMakeFiles/CMakeError.log".
 ------
- > [internal] load build definition from Dockerfile:
-------
-ERROR: failed to solve: failed to read dockerfile: failed to prepare  as 64e0pwti714wubtstrmalqavd: symlink ../64e0pwti714wubtstrmalqavd/diff /var/lib/docker/overlay2/l/WVM7HLDSHZ3TTTSEIJMGHQDTCC: no such file or directory
-
+Dockerfile:41
+--------------------
+  40 |     
+  41 | >>> RUN git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git && \
+  42 | >>>     git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git && \
+  43 | >>>     mkdir -p opencv/build && cd opencv/build && \
+  44 | >>>         cmake -D CMAKE_BUILD_TYPE=RELEASE \
+  45 | >>>               -D CMAKE_INSTALL_PREFIX=/usr/local \
+  46 | >>>               -D OPENCV_EXTRA_MODULES_PATH=~/opencv/opencv_contrib/modules \
+  47 | >>>               -D EIGEN_INCLUDE_PATH=/usr/include/eigen3 \
+  48 | >>>               -D WITH_OPENCL=OFF \
+  49 | >>>               -D CUDA_ARCH_BIN=${ARCH} \
+  50 | >>>               -D CUDA_ARCH_PTX=${PTX} \
+  51 | >>>               -D WITH_CUDA=ON \
+  52 | >>>               -D WITH_CUDNN=ON \
+  53 | >>>               -D ENABLE_FAST_MATH=ON \
+  54 | >>>               -D CUDA_FAST_MATH=ON \
+  55 | >>>               -D OPENCV_DNN_CUDA=ON \
+  56 | >>>               -D WITH_QT=OFF \
+  57 | >>>               -D WITH_OPENMP=ON \
+  58 | >>>               -D BUILD_TIFF=ON \
+  59 | >>>               -D WITH_FFMPEG=ON \
+  60 | >>>               -D WITH_GSTREAMER=ON \
+  61 | >>>               -D TBB=ON \
+  62 | >>>               -D BUILD_TBB=ON \
+  63 | >>>               -D BUILD_TEST=OFF \
+  64 | >>>               -D WITH_EIGEN=ON \
+  65 | >>>               -D WITH_V4L=ON \
+  66 | >>>               -D WITH_LIBV4L=ON \
+  67 | >>>               -D WITH_PROTOBUF=ON \
+  68 | >>>               -D OPENCV_ENABLE_NONFREE=ON \
+  69 | >>>               -D INSTALL_C_EXAMPLES=OFF \
+  70 | >>>               -D INSTALL_PYTHON_EXAMPLES=OFF \
+  71 | >>>               -D PYTHON3_PACKAGES_PATH=/usr/lib/python3/dist-packages \
+  72 | >>>               -D OPENCV_GENERATE_PKGCONFIG=ON \
+  73 | >>>               -D BUILD_EXAMPLES=OFF \
+  74 | >>>               -D CMAKE_CXX_FLAGS="-march=native -mtune=native" \
+  75 | >>>               -D CMAKE_C_FLAGS="-march=native -mtune=native" .. && \
+  76 | >>>               make -j${nproc} && \
+  77 | >>>               sudo make install && sudo ldconfig
+  78 |     
+--------------------
+ERROR: failed to solve: process "/bin/sh -c git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv.git &&     git clone --depth=1 -b 4.10.0 https://github.com/opencv/opencv_contrib.git &&     mkdir -p opencv/build && cd opencv/build &&         cmake -D CMAKE_BUILD_TYPE=RELEASE               -D CMAKE_INSTALL_PREFIX=/usr/local               -D OPENCV_EXTRA_MODULES_PATH=~/opencv/opencv_contrib/modules               -D EIGEN_INCLUDE_PATH=/usr/include/eigen3               -D WITH_OPENCL=OFF               -D CUDA_ARCH_BIN=${ARCH}               -D CUDA_ARCH_PTX=${PTX}               -D WITH_CUDA=ON               -D WITH_CUDNN=ON               -D ENABLE_FAST_MATH=ON               -D CUDA_FAST_MATH=ON               -D OPENCV_DNN_CUDA=ON               -D WITH_QT=OFF               -D WITH_OPENMP=ON               -D BUILD_TIFF=ON               -D WITH_FFMPEG=ON               -D WITH_GSTREAMER=ON               -D TBB=ON               -D BUILD_TBB=ON               -D BUILD_TEST=OFF               -D WITH_EIGEN=ON               -D WITH_V4L=ON               -D WITH_LIBV4L=ON               -D WITH_PROTOBUF=ON               -D OPENCV_ENABLE_NONFREE=ON               -D INSTALL_C_EXAMPLES=OFF               -D INSTALL_PYTHON_EXAMPLES=OFF               -D PYTHON3_PACKAGES_PATH=/usr/lib/python3/dist-packages               -D OPENCV_GENERATE_PKGCONFIG=ON               -D BUILD_EXAMPLES=OFF               -D CMAKE_CXX_FLAGS=\"-march=native -mtune=native\"               -D CMAKE_C_FLAGS=\"-march=native -mtune=native\" .. &&               make -j${nproc} &&               sudo make install && sudo ldconfig" did not complete successfully: exit code: 1
