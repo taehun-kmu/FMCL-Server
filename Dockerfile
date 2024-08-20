@@ -14,3 +14,5 @@ RUN sed -i 's|http://archive.ubuntu.com|https://ftp.kaist.ac.kr|g; s|http://secu
 # 생성한 사용자로 스위치
 USER user
 
+WORKDIR /home/user
+
