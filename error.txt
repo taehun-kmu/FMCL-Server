@@ -1,29 +1,12 @@
 gtop
-node:internal/modules/cjs/loader:1148
-  throw err;
-  ^
-
-Error: Cannot find module 'blessed'
-Require stack:
-- /home/fmcld1/3rdparty/gtop/lib/gtop.js
-- /home/fmcld1/3rdparty/gtop/bin/gtop
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1145:15)
-    at Module._load (node:internal/modules/cjs/loader:986:27)
-    at Module.require (node:internal/modules/cjs/loader:1233:19)
-    at require (node:internal/modules/helpers:179:18)
-    at Object.<anonymous> (/home/fmcld1/3rdparty/gtop/lib/gtop.js:1:15)
+TypeError: Cannot read properties of undefined (reading 'focus')
+    at Object.<anonymous> (/home/fmcld1/3rdparty/gtop/lib/gtop.js:68:11)
     at Module._compile (node:internal/modules/cjs/loader:1358:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
     at Module.load (node:internal/modules/cjs/loader:1208:32)
     at Module._load (node:internal/modules/cjs/loader:1024:12)
-    at Module.require (node:internal/modules/cjs/loader:1233:19) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [
-    '/home/fmcld1/3rdparty/gtop/lib/gtop.js',
-    '/home/fmcld1/3rdparty/gtop/bin/gtop'
-  ]
-}
-
-Node.js v20.16.0
-
-
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/home/fmcld1/3rdparty/gtop/bin/gtop:3:1)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
