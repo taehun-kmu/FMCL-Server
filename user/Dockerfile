@@ -2,7 +2,6 @@ FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
 ENV TZ=Asia/Seoul \
     TERM=xterm-256color \
-    LC_ALL=C.UTF.8 \
     HOME=/home/user \
     USER=user
 
@@ -11,7 +10,7 @@ RUN sed -i 's|http://archive.ubuntu.com|https://ftp.kaist.ac.kr|g; \
             s|http://security.ubuntu.com|https://ftp.kaist.ac.kr|g' \
             /etc/apt/sources.list && \
         apt update && \
-        apt install sudo -y && \
+        apt install sudo git curl build-essential -y && \
         apt autoremove --purge -y && \
         apt clean && apt autoclean && \
         rm -rf /var/lib/apt/lists/* && \
