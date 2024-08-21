@@ -1,13 +1,25 @@
 FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
-FROM taehun3446/setup:user
+ENV TZ=Asia/Seoul \
+    TERM=xterm-256color \
+    LC_ALL=C.UTF.8 \
+    HOME=/home/user \
+    USER=user
 
-FROM taehun3446/setup:zsh
+# sudo 설치 및 사용자 생성
+RUN sed -i 's|http://archive.ubuntu.com|https://ftp.kaist.ac.kr|g; \
+            s|http://security.ubuntu.com|https://ftp.kaist.ac.kr|g' \
+            /etc/apt/sources.list && \
+        apt update && \
+        apt install sudo -y && \
+        apt autoremove --purge -y && \
+        apt clean && apt autoclean && \
+        rm -rf /var/lib/apt/lists/* && \
+    adduser user -u 1000 --quiet --gecos "" --disabled-password && \
+    echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
+    chmod 0440 /etc/sudoers.d/user
 
-RUN sudo nala update && \
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \ 
-    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/user/.zshrc && \
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-    sudo apt clean && sudo apt autoclean && \
-    sudo rm -rf /var/lib/apt/lists/*
+USER user
+
+WORKDIR $HOME
 
