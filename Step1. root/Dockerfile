@@ -17,6 +17,7 @@ RUN apt update && apt install -y ca-certificates && \
         /etc/apt/sources.list && \
     apt update && apt install --reinstall ca-certificates && \
                   apt install -y --no-install-recommends \
+                              sudo \
                               build-essential \
                               curl \
                               git && \
