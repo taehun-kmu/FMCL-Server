@@ -1,0 +1,6 @@
+[submodule "cuda-aarch64-cc-mxnet-opencv"]
+	path = cuda-aarch64-cc-mxnet-opencv
+	url = https://github.com/FMCL/FMCL-Server
+[submodule "jetson-containers"]
+	path = jetson-containers
+	url = https://github.com/FMCL/FMCL-Server
