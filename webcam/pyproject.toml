@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "api"
+version = "0.1.0"
+description = ""
+authors = ["taehun-kmu <taehun@kookmin.ac.kr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.114.2"
+uvicorn = "^0.30.6"
+asyncio = "^3.4.3"
+numpy = "^2.1.1"
+opencv-python = "^4.10.0.84"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
